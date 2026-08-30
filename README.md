@@ -1,64 +1,41 @@
 Set up mock build environment:
 ```
-sudo mock -r ./nobara-43-x86_64.cfg --clean
-sudo mock -r ./nobara-43-x86_64.cfg --install lorax-lmc-novirt vim-minimal pykickstart
-sudo cp ISO-ready-flattened-kickstarts/43/* /var/lib/mock/nobara-43-x86_64/root/builddir/
-sudo cp -R lorax-custom /var/lib/mock/nobara-43-x86_64/root/builddir/
-sudo mock -r ./nobara-43-x86_64.cfg --shell --enable-network
+sudo mock -r ./nobara-44-x86_64.cfg --clean
+sudo mock -r ./nobara-44-x86_64.cfg --install lorax-lmc-novirt vim-minimal pykickstart
+sudo cp ISO-ready-flattened-kickstarts/44/* /var/lib/mock/nobara-44-x86_64/root/builddir/
+sudo cp -R lorax-custom /var/lib/mock/nobara-44-x86_64/root/builddir/
+sudo mock -r ./nobara-44-x86_64.cfg --shell --enable-network
 ```
 
 From within mock environment:
 
 Official:
 ```
-# livemedia-creator --ks flat-nobara-live-official-43.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-43 --iso-only --iso-name Nobara-43-Official-$(date +%F).iso --releasever 43 --macboot
+# livemedia-creator --ks nv-flat-nobara-live-official-44.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-44 --iso-only --iso-name Nobara-44-Official-$(date +%F).iso --releasever 44 --macboot --extra-boot-args "modules_load=nvidia"
 ```
 
 Gnome:
 ```
-# livemedia-creator --ks flat-nobara-live-gnome-43.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-43 --iso-only --iso-name Nobara-43-GNOME-$(date +%F).iso --releasever 43 --macboot
+# livemedia-creator --ks nv-flat-nobara-live-gnome-44.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-44 --iso-only --iso-name Nobara-44-GNOME-$(date +%F).iso --releasever 44 --macboot --extra-boot-args "modules_load=nvidia"
 ```
 
 KDE:
 ```
-# livemedia-creator --ks flat-nobara-live-kde-43.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-43 --iso-only --iso-name Nobara-43-KDE-$(date +%F).iso --releasever 43 --macboot
+# livemedia-creator --ks nv-flat-nobara-live-kde-44.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-44 --iso-only --iso-name Nobara-44-KDE-$(date +%F).iso --releasever 44 --macboot --extra-boot-args "modules_load=nvidia"
 ```
 
 Steam HTPC:
 ```
-# livemedia-creator --ks flat-nobara-live-steam-htpc-43.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-43 --iso-only --iso-name Nobara-43-Steam-HTPC-$(date +%F).iso --releasever 43 --macboot --lorax-templates ./lorax-custom
+# livemedia-creator --ks nv-flat-nobara-live-steam-htpc-44.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-44 --iso-only --iso-name Nobara-44-Steam-HTPC-$(date +%F).iso --releasever 44 --macboot  --extra-boot-args "modules_load=nvidia" --lorax-templates ./lorax-custom
 ```
-
 Steam Handheld:
 ```
-# livemedia-creator --ks flat-nobara-live-steam-handheld-43.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-43 --iso-only --iso-name Nobara-43-Steam-Handheld-$(date +%F).iso --releasever 43 --macboot --lorax-templates ./lorax-custom
-```
-
-
-
-Nvidia Official:
-```
-# livemedia-creator --ks nv-flat-nobara-live-official-43.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-43 --iso-only --iso-name Nobara-43-Official-NV-$(date +%F).iso --releasever 43 --macboot --extra-boot-args "modules_load=nvidia"
-```
-
-Nvidia Gnome:
-```
-# livemedia-creator --ks nv-flat-nobara-live-gnome-43.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-43 --iso-only --iso-name Nobara-43-GNOME-NV-$(date +%F).iso --releasever 43 --macboot --extra-boot-args "modules_load=nvidia"
-```
-
-Nvidia KDE:
-```
-# livemedia-creator --ks nv-flat-nobara-live-kde-43.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-43 --iso-only --iso-name Nobara-43-KDE-NV-$(date +%F).iso --releasever 43 --macboot --extra-boot-args "modules_load=nvidia"
-```
-
-Nvidia Steam HTPC:
-```
-# livemedia-creator --ks nv-flat-nobara-live-steam-htpc-43.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-43 --iso-only --iso-name Nobara-43-Steam-HTPC-NV-$(date +%F).iso --releasever 43 --macboot --lorax-templates ./lorax-custom
+livemedia-creator --ks nv-flat-nobara-live-steam-handheld-44.ks --no-virt --resultdir ./release --project Nobara --make-iso --volid Nobara-44 --iso-only --iso-name Nobara-44-Steam-Handheld-$(date +%F).iso --releasever 44 --macboot --extra-boot-args "modules_load=nvidia" --lorax-templates ./lorax-custom
 ```
 
 exit
 
-sudo mv /var/lib/mock/nobara-43-x86_64/root/builddir/release .
+sudo mv /var/lib/mock/nobara-44-x86_64/root/builddir/release .
 
 Finished!
 
