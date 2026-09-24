@@ -10,10 +10,10 @@ lang en_US.UTF-8
 network  --bootproto=dhcp --device=link --activate
 # Shutdown after installation
 shutdown
-repo --name="nvidia-prod" --baseurl=https://usw.nobaraproject.org/rolling/nvidia/prod/$basearch/ --cost=98
-repo --name="nobara" --baseurl=https://usw.nobaraproject.org/rolling/fedora/$basearch/ --cost=99
-repo --name="nobara-updates" --baseurl=https://usw.nobaraproject.org/rolling/nobara-updates/$basearch/ --cost=98
-repo --name="nobara-kernel-mainline" --baseurl=https://usw.nobaraproject.org/rolling/linux-nobara-mainline/$basearch/ --cost=97
+repo --name="nvidia-prod" --mirrorlist=https://mirrors.nobaraproject.org/rolling/$basearch/nvp --cost=98
+repo --name="nobara" --mirrorlist=https://mirrors.nobaraproject.org/rolling/$basearch/nobara --cost=99
+repo --name="nobara-updates" --mirrorlist=https://mirrors.nobaraproject.org/rolling/$basearch/baseos --cost=98
+repo --name="nobara-kernel-lts" --mirrorlist=https://mirrors.nobaraproject.org/rolling/$basearch/kernel-lts --cost=97
 repo --name="nobara-media" --baseurl=https://rpm.pika-os.com/nobara/media/$basearch/
 repo --name="terra" --metalink="https://tetsudou.fyralabs.com/metalink?repo=terra$releasever&arch=$basearch" --excludepkgs="akmod-xone, akmod-xpad-noone, gamescope, gamescope-session, gamescope-session-steam, flatpost, inputplumber, kmod-xone, kmod-xpad-noone, umu-launcher, umu-launcher-debuginfo, umu-launcher-debugsource, v4l2loopback, xone, xpad-noone, apparmor-debuginfo, apparmor-debugsource, apparmor-devel, apparmor-libs, apparmor-libs-debuginfo, apparmor-parser, apparmor-parser-debuginfo, apparmor-profiles, apparmor-utils, apparmor-utils-debuginfo, mod_apparmor, mod_apparmor-debuginfo, pam_apparmor, pam_apparmor-debuginfo, python3-apparmor, python3-LibAppArmor, python3-LibAppArmor-debuginfo, xone-firmware, powerbuttond"
 # Root password
